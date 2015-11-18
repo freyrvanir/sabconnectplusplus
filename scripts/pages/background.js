@@ -19,6 +19,7 @@ var defaultSettings = {
 	provider_nzbrss: true,
 	provider_newznab: 'your_newznab.com, some_other_newznab.com',
 	provider_usenet4ever: true,
+	provider_ghostofusenet: true,
 	use_name_binsearch: true,
 	use_name_nzbindex: true,
 	use_name_yubse: true,
@@ -475,6 +476,63 @@ function addToSABnzbd( request, sendResponse ) {
 	fetchInfo(true);
 }
 
+function findNZB( request, sendResponse ) {
+	var query = request.query;
+	var nzbSearchUrl = "https://binsearch.info/?max=25&adv_age=1100&q="+encodeURIComponent(query);
+	
+	$.ajax({
+		type: "GET",
+		url: nzbSearchUrl,
+		cache: true,
+		dataType: 'html',
+		success: function(html) { 
+			var rows = $(html).find("#r2 tbody tr");
+			var result = [];
+			rows.each(function(i) {
+				if (i == 0) return;	// skip first row
+				var tds = $(this).find("td");
+				if (tds.length < 5) return;	// skip rows "The posts below were posted a long time ago."
+				var data = {
+					title: $(tds[2]).find("span.s").text(),
+					size: /size\: (.+),/.exec($(tds[2]).find("span.d").text())[1],
+					nzburl: "https://binsearch.info/?action=nzb&"+$(tds[1]).find("input").attr("name")+"=1",
+					groups: $(tds[4]).text()
+				};
+				result.push(data);
+			});
+			
+			sendResponse( {ret: 'success', data: result } ); 
+		},
+		error: function(xhr, status, text) { 
+			sendResponse( {ret: 'error' } ); 
+		}
+	});
+}
+
+function showNzbSearch( request, sendResponse ) {
+	var subject = encodeURIComponent(request.subject);
+	var title = request.title;
+	var password = request.password;
+	var category = request.category;
+	
+	var nzbSearchUrl = "https://nzbindex.com/search/?q=" + subject +"&max=25&sort=agedesc";
+	
+	var id = chrome.tabs.create({'url': nzbSearchUrl, 'active': true}, function(tab) {
+		chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab2) {
+			if (tabId == tab.id && changeInfo.status == "complete") {
+				// send import values to the tab
+				var request = {
+					action: 'SetDefaultImportValues',
+					title: title,
+					password: password,
+					category: category,
+				}
+				chrome.tabs.sendMessage(tab.id, request);
+			}
+		})
+	});
+}
+
 function refreshRateChanged()
 {
 	restartTimer();
@@ -525,6 +583,12 @@ function OnRequest( request, sender, sendResponse )
 		}
 		sendSabRequest(params, sendResponse);
 		return true;
+	case 'findNZB':
+		findNZB(request, sendResponse);
+		return true;
+	case 'showNzbSearch':
+		showNzbSearch(request, sendResponse);
+		break;
 	}
 	
 	sendResponse( response );
@@ -609,5 +673,4 @@ function initializeBackgroundPage()
 
 	initializeProfile();
 }
-
 

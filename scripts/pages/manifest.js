@@ -236,6 +236,40 @@ this.manifest = {
 			'label': 'yubse.com: Use display name instead of NZB filename.'
 		},
 		
+		// Providers Tab, forums
+		{
+			'tab': 'Providers',
+			'group': 'Forums',
+			'name': 'forum_description',
+			'type': 'description',
+			'sync': true,
+			'text':
+					'This is a list of currently supported forums. In the selected forums, SABConnect will extract the header and password from the postings and display a button which redirects to a search provider (NZBIndex.nl)'
+		},
+		{
+			'tab': 'Providers',
+			'group': 'Forums',
+			'name': 'provider_ghostofusenet',
+			'type': 'checkbox',
+			'sync': true,
+			'label': 'ghost-of-usenet.org'
+		},		
+		{
+			'tab': 'Providers',
+			'group': 'Forums',
+			'name': 'provider_usenet4all',
+			'type': 'checkbox',
+			'sync': true,
+			'label': 'usenet-4all.info'
+		},		
+		{
+			'tab': 'Providers',
+			'group': 'Forums',
+			'name': 'provider_usenetspacecowboys',
+			'type': 'checkbox',
+			'sync': true,
+			'label': 'usenet-space-cowboys.info'
+		},		
 		// Configuration Tab, General section
 		{
 			'tab': 'Configuration',

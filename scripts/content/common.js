@@ -69,7 +69,7 @@ function addToSABnzbd(addLink, nzburl, mode, nice_name, category) {
 	if (!ignoreCats && typeof category != 'undefined' && category != null) {
 		request.category = category;
 	}
-	
+
 	console.log("Sending to SABnzbd:");
 	console.log(request);
 	
@@ -77,6 +77,18 @@ function addToSABnzbd(addLink, nzburl, mode, nice_name, category) {
 		request,
 		function(response) { onResponseAdd( response, addLink ) }
 		);
+}
+
+function showNzbSearch(subject, title, password, category, callback) {
+	var request = {
+		action: 'showNzbSearch',
+		subject: subject,
+		title: title,
+		password: password,
+		category: category
+	};
+	
+	chrome.extension.sendMessage(request, callback);
 }
 
 function GetSetting( setting, callback )
@@ -132,6 +144,9 @@ function OnRequest( request, sender, onResponse )
 	switch( request.action ) {
 	case 'refresh_settings':
 		CallRefreshFunction();
+		break;
+	case 'SetDefaultImportValues':
+		SetDefaultImportValues(request);
 		break;
 	}
 };

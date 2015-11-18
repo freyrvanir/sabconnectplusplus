@@ -1,0 +1,322 @@
+/*! jQuery UI - v1.9.2 - 2015-09-04
+* http://jqueryui.com
+* Includes: jquery.ui.core.css, jquery.ui.resizable.css, jquery.ui.selectable.css, jquery.ui.button.css, jquery.ui.dialog.css, jquery.ui.theme.css
+* To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Trebuchet%20MS%2CTahoma%2CVerdana%2CArial%2Csans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=f6a828&bgTextureHeader=gloss_wave&bgImgOpacityHeader=35&borderColorHeader=e78f08&fcHeader=ffffff&iconColorHeader=ffffff&bgColorContent=eeeeee&bgTextureContent=highlight_soft&bgImgOpacityContent=100&borderColorContent=dddddd&fcContent=333333&iconColorContent=222222&bgColorDefault=f6f6f6&bgTextureDefault=glass&bgImgOpacityDefault=100&borderColorDefault=cccccc&fcDefault=1c94c4&iconColorDefault=ef8c08&bgColorHover=fdf5ce&bgTextureHover=glass&bgImgOpacityHover=100&borderColorHover=fbcb09&fcHover=c77405&iconColorHover=ef8c08&bgColorActive=ffffff&bgTextureActive=glass&bgImgOpacityActive=65&borderColorActive=fbd850&fcActive=eb8f00&iconColorActive=ef8c08&bgColorHighlight=ffe45c&bgTextureHighlight=highlight_soft&bgImgOpacityHighlight=75&borderColorHighlight=fed22f&fcHighlight=363636&iconColorHighlight=228ef1&bgColorError=b81900&bgTextureError=diagonals_thick&bgImgOpacityError=18&borderColorError=cd0a0a&fcError=ffffff&iconColorError=ffd27a&bgColorOverlay=666666&bgTextureOverlay=diagonals_thick&bgImgOpacityOverlay=20&opacityOverlay=50&bgColorShadow=000000&bgTextureShadow=flat&bgImgOpacityShadow=10&opacityShadow=20&thicknessShadow=5px&offsetTopShadow=-5px&offsetLeftShadow=-5px&cornerRadiusShadow=5px
+* Copyright 2015 jQuery Foundation and other contributors; Licensed MIT */
+
+/* Layout helpers
+----------------------------------*/
+sabconnect .ui-helper-hidden { display: none; }
+sabconnect .ui-helper-hidden-accessible { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+sabconnect .ui-helper-reset { margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none; }
+sabconnect .ui-helper-clearfix:before, sabconnect .ui-helper-clearfix:after { content: ""; display: table; }
+sabconnect .ui-helper-clearfix:after { clear: both; }
+sabconnect .ui-helper-clearfix { zoom: 1; }
+sabconnect .ui-helper-zfix { width: 100%; height: 100%; top: 0; left: 0; position: absolute; opacity: 0; filter:Alpha(Opacity=0); }
+
+
+/* Interaction Cues
+----------------------------------*/
+sabconnect .ui-state-disabled { cursor: default !important; }
+
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+sabconnect .ui-icon { display: block; text-indent: -99999px; overflow: hidden; background-repeat: no-repeat; }
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Overlays */
+sabconnect .ui-widget-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+sabconnect .ui-resizable { position: relative;}
+sabconnect .ui-resizable-handle { position: absolute;font-size: 0.1px; display: block; }
+sabconnect .ui-resizable-disabled .ui-resizable-handle, sabconnect .ui-resizable-autohide .ui-resizable-handle { display: none; }
+sabconnect .ui-resizable-n { cursor: n-resize; height: 7px; width: 100%; top: -5px; left: 0; }
+sabconnect .ui-resizable-s { cursor: s-resize; height: 7px; width: 100%; bottom: -5px; left: 0; }
+sabconnect .ui-resizable-e { cursor: e-resize; width: 7px; right: -5px; top: 0; height: 100%; }
+sabconnect .ui-resizable-w { cursor: w-resize; width: 7px; left: -5px; top: 0; height: 100%; }
+sabconnect .ui-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: 1px; bottom: 1px; }
+sabconnect .ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: -5px; bottom: -5px; }
+sabconnect .ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: -5px; top: -5px; }
+sabconnect .ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}sabconnect .ui-selectable-helper { position: absolute; z-index: 100; border:1px dotted black; }
+sabconnect .ui-button { display: inline-block; position: relative; padding: 0; margin-right: .1em; cursor: pointer; text-align: center; zoom: 1; overflow: visible; } /* the overflow property removes extra width in IE */
+sabconnect .ui-button, sabconnect .ui-button:link, sabconnect .ui-button:visited, sabconnect .ui-button:hover, sabconnect .ui-button:active { text-decoration: none; }
+sabconnect .ui-button-icon-only { width: 2.2em; } /* to make room for the icon, a width needs to be set here */
+buttonsabconnect .ui-button-icon-only { width: 2.4em; } /* button elements seem to need a little more width */
+sabconnect .ui-button-icons-only { width: 3.4em; } 
+buttonsabconnect .ui-button-icons-only { width: 3.7em; } 
+
+/*button text element */
+sabconnect .ui-button .ui-button-text { display: block; line-height: 1.4;  }
+sabconnect .ui-button-text-only .ui-button-text { padding: .4em 1em; }
+sabconnect .ui-button-icon-only .ui-button-text, sabconnect .ui-button-icons-only .ui-button-text { padding: .4em; text-indent: -9999999px; }
+sabconnect .ui-button-text-icon-primary .ui-button-text, sabconnect .ui-button-text-icons .ui-button-text { padding: .4em 1em .4em 2.1em; }
+sabconnect .ui-button-text-icon-secondary .ui-button-text, sabconnect .ui-button-text-icons .ui-button-text { padding: .4em 2.1em .4em 1em; }
+sabconnect .ui-button-text-icons .ui-button-text { padding-left: 2.1em; padding-right: 2.1em; }
+/* no icon support for input elements, provide padding by default */
+inputsabconnect .ui-button { padding: .4em 1em; }
+
+/*button icon element(s) */
+sabconnect .ui-button-icon-only .ui-icon, sabconnect .ui-button-text-icon-primary .ui-icon, sabconnect .ui-button-text-icon-secondary .ui-icon, sabconnect .ui-button-text-icons .ui-icon, sabconnect .ui-button-icons-only .ui-icon { position: absolute; top: 50%; margin-top: -8px; }
+sabconnect .ui-button-icon-only .ui-icon { left: 50%; margin-left: -8px; }
+sabconnect .ui-button-text-icon-primary .ui-button-icon-primary, sabconnect .ui-button-text-icons .ui-button-icon-primary, sabconnect .ui-button-icons-only .ui-button-icon-primary { left: .5em; }
+sabconnect .ui-button-text-icon-secondary .ui-button-icon-secondary, sabconnect .ui-button-text-icons .ui-button-icon-secondary, sabconnect .ui-button-icons-only .ui-button-icon-secondary { right: .5em; }
+sabconnect .ui-button-text-icons .ui-button-icon-secondary, sabconnect .ui-button-icons-only .ui-button-icon-secondary { right: .5em; }
+
+/*button sets*/
+sabconnect .ui-buttonset { margin-right: 7px; }
+sabconnect .ui-buttonset .ui-button { margin-left: 0; margin-right: -.3em; }
+
+/* workarounds */
+buttonsabconnect .ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra padding in Firefox */
+sabconnect .ui-dialog { position: absolute; top: 0; left: 0; padding: .2em; width: 300px; overflow: hidden; }
+sabconnect .ui-dialog .ui-dialog-titlebar { padding: .4em 1em; position: relative;  }
+sabconnect .ui-dialog .ui-dialog-title { float: left; margin: .1em 16px .1em 0; }
+sabconnect .ui-dialog .ui-dialog-titlebar-close { position: absolute; right: .3em; top: 50%; width: 19px; margin: -10px 0 0 0; padding: 1px; height: 18px; }
+sabconnect .ui-dialog .ui-dialog-titlebar-close span { display: block; margin: 1px; }
+sabconnect .ui-dialog .ui-dialog-titlebar-close:hover, sabconnect .ui-dialog .ui-dialog-titlebar-close:focus { padding: 0; }
+sabconnect .ui-dialog .ui-dialog-content { position: relative; border: 0; padding: .5em 1em; background: none; overflow: auto; zoom: 1; }
+sabconnect .ui-dialog .ui-dialog-buttonpane { text-align: left; border-width: 1px 0 0 0; background-image: none; margin: .5em 0 0 0; padding: .3em 1em .5em .4em; }
+sabconnect .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset { float: right; }
+sabconnect .ui-dialog .ui-dialog-buttonpane button { margin: .5em .4em .5em 0; cursor: pointer; }
+sabconnect .ui-dialog .ui-resizable-se { width: 14px; height: 14px; right: 3px; bottom: 3px; }
+sabconnect .ui-draggable .ui-dialog-titlebar { cursor: move; }
+
+/* Component containers
+----------------------------------*/
+.sabconnect .ui-widget { font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif; font-size: 1.1em; }
+.sabconnect .ui-widget .ui-widget { font-size: 1em; }
+.sabconnect .ui-widget input, .sabconnect .ui-widget select, .sabconnect .ui-widget textarea, .sabconnect .ui-widget button { font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif; font-size: 1em; }
+.sabconnect .ui-widget-content { border: 1px solid #dddddd; background: #eeeeee url("images/ui-bg_highlight-soft_100_eeeeee_1x100.png") 50% top repeat-x; color: #333333; }
+.sabconnect .ui-widget-content a { color: #333333; }
+.sabconnect .ui-widget-header { border: 1px solid #e78f08; background: #f6a828 url("images/ui-bg_gloss-wave_35_f6a828_500x100.png") 50% 50% repeat-x; color: #ffffff; font-weight: bold; }
+.sabconnect .ui-widget-header a { color: #ffffff; }
+
+/* Interaction states
+----------------------------------*/
+.sabconnect .ui-state-default, .sabconnect .ui-widget-content .ui-state-default, .sabconnect .ui-widget-header .ui-state-default { border: 1px solid #cccccc; background: #f6f6f6 url("images/ui-bg_glass_100_f6f6f6_1x400.png") 50% 50% repeat-x; font-weight: bold; color: #1c94c4; }
+.sabconnect .ui-state-default a, .sabconnect .ui-state-default a:link, .sabconnect .ui-state-default a:visited { color: #1c94c4; text-decoration: none; }
+.sabconnect .ui-state-hover, .sabconnect .ui-widget-content .ui-state-hover, .sabconnect .ui-widget-header .ui-state-hover, .sabconnect .ui-state-focus, .sabconnect .ui-widget-content .ui-state-focus, .sabconnect .ui-widget-header .ui-state-focus { border: 1px solid #fbcb09; background: #fdf5ce url("images/ui-bg_glass_100_fdf5ce_1x400.png") 50% 50% repeat-x; font-weight: bold; color: #c77405; }
+.sabconnect .ui-state-hover a, .sabconnect .ui-state-hover a:hover, .sabconnect .ui-state-hover a:link, .sabconnect .ui-state-hover a:visited { color: #c77405; text-decoration: none; }
+.sabconnect .ui-state-active, .sabconnect .ui-widget-content .ui-state-active, .sabconnect .ui-widget-header .ui-state-active { border: 1px solid #fbd850; background: #ffffff url("images/ui-bg_glass_65_ffffff_1x400.png") 50% 50% repeat-x; font-weight: bold; color: #eb8f00; }
+.sabconnect .ui-state-active a, .sabconnect .ui-state-active a:link, .sabconnect .ui-state-active a:visited { color: #eb8f00; text-decoration: none; }
+
+/* Interaction Cues
+----------------------------------*/
+.sabconnect .ui-state-highlight, .sabconnect .ui-widget-content .ui-state-highlight, .sabconnect .ui-widget-header .ui-state-highlight  {border: 1px solid #fed22f; background: #ffe45c url("images/ui-bg_highlight-soft_75_ffe45c_1x100.png") 50% top repeat-x; color: #363636; }
+.sabconnect .ui-state-highlight a, .sabconnect .ui-widget-content .ui-state-highlight a,.sabconnect .ui-widget-header .ui-state-highlight a { color: #363636; }
+.sabconnect .ui-state-error, .sabconnect .ui-widget-content .ui-state-error, .sabconnect .ui-widget-header .ui-state-error {border: 1px solid #cd0a0a; background: #b81900 url("images/ui-bg_diagonals-thick_18_b81900_40x40.png") 50% 50% repeat; color: #ffffff; }
+.sabconnect .ui-state-error a, .sabconnect .ui-widget-content .ui-state-error a, .sabconnect .ui-widget-header .ui-state-error a { color: #ffffff; }
+.sabconnect .ui-state-error-text, .sabconnect .ui-widget-content .ui-state-error-text, .sabconnect .ui-widget-header .ui-state-error-text { color: #ffffff; }
+.sabconnect .ui-priority-primary, .sabconnect .ui-widget-content .ui-priority-primary, .sabconnect .ui-widget-header .ui-priority-primary { font-weight: bold; }
+.sabconnect .ui-priority-secondary, .sabconnect .ui-widget-content .ui-priority-secondary,  .sabconnect .ui-widget-header .ui-priority-secondary { opacity: .7; filter:Alpha(Opacity=70); font-weight: normal; }
+.sabconnect .ui-state-disabled, .sabconnect .ui-widget-content .ui-state-disabled, .sabconnect .ui-widget-header .ui-state-disabled { opacity: .35; filter:Alpha(Opacity=35); background-image: none; }
+.sabconnect .ui-state-disabled .ui-icon { filter:Alpha(Opacity=35); } /* For IE8 - See #6059 */
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.sabconnect .ui-icon { width: 16px; height: 16px; background-image: url("images/ui-icons_222222_256x240.png"); }
+.sabconnect .ui-widget-content .ui-icon {background-image: url("images/ui-icons_222222_256x240.png"); }
+.sabconnect .ui-widget-header .ui-icon {background-image: url("images/ui-icons_ffffff_256x240.png"); }
+.sabconnect .ui-state-default .ui-icon { background-image: url("images/ui-icons_ef8c08_256x240.png"); }
+.sabconnect .ui-state-hover .ui-icon, .sabconnect .ui-state-focus .ui-icon {background-image: url("images/ui-icons_ef8c08_256x240.png"); }
+.sabconnect .ui-state-active .ui-icon {background-image: url("images/ui-icons_ef8c08_256x240.png"); }
+.sabconnect .ui-state-highlight .ui-icon {background-image: url("images/ui-icons_228ef1_256x240.png"); }
+.sabconnect .ui-state-error .ui-icon, .sabconnect .ui-state-error-text .ui-icon {background-image: url("images/ui-icons_ffd27a_256x240.png"); }
+
+/* positioning */
+.sabconnect .ui-icon-carat-1-n { background-position: 0 0; }
+.sabconnect .ui-icon-carat-1-ne { background-position: -16px 0; }
+.sabconnect .ui-icon-carat-1-e { background-position: -32px 0; }
+.sabconnect .ui-icon-carat-1-se { background-position: -48px 0; }
+.sabconnect .ui-icon-carat-1-s { background-position: -64px 0; }
+.sabconnect .ui-icon-carat-1-sw { background-position: -80px 0; }
+.sabconnect .ui-icon-carat-1-w { background-position: -96px 0; }
+.sabconnect .ui-icon-carat-1-nw { background-position: -112px 0; }
+.sabconnect .ui-icon-carat-2-n-s { background-position: -128px 0; }
+.sabconnect .ui-icon-carat-2-e-w { background-position: -144px 0; }
+.sabconnect .ui-icon-triangle-1-n { background-position: 0 -16px; }
+.sabconnect .ui-icon-triangle-1-ne { background-position: -16px -16px; }
+.sabconnect .ui-icon-triangle-1-e { background-position: -32px -16px; }
+.sabconnect .ui-icon-triangle-1-se { background-position: -48px -16px; }
+.sabconnect .ui-icon-triangle-1-s { background-position: -64px -16px; }
+.sabconnect .ui-icon-triangle-1-sw { background-position: -80px -16px; }
+.sabconnect .ui-icon-triangle-1-w { background-position: -96px -16px; }
+.sabconnect .ui-icon-triangle-1-nw { background-position: -112px -16px; }
+.sabconnect .ui-icon-triangle-2-n-s { background-position: -128px -16px; }
+.sabconnect .ui-icon-triangle-2-e-w { background-position: -144px -16px; }
+.sabconnect .ui-icon-arrow-1-n { background-position: 0 -32px; }
+.sabconnect .ui-icon-arrow-1-ne { background-position: -16px -32px; }
+.sabconnect .ui-icon-arrow-1-e { background-position: -32px -32px; }
+.sabconnect .ui-icon-arrow-1-se { background-position: -48px -32px; }
+.sabconnect .ui-icon-arrow-1-s { background-position: -64px -32px; }
+.sabconnect .ui-icon-arrow-1-sw { background-position: -80px -32px; }
+.sabconnect .ui-icon-arrow-1-w { background-position: -96px -32px; }
+.sabconnect .ui-icon-arrow-1-nw { background-position: -112px -32px; }
+.sabconnect .ui-icon-arrow-2-n-s { background-position: -128px -32px; }
+.sabconnect .ui-icon-arrow-2-ne-sw { background-position: -144px -32px; }
+.sabconnect .ui-icon-arrow-2-e-w { background-position: -160px -32px; }
+.sabconnect .ui-icon-arrow-2-se-nw { background-position: -176px -32px; }
+.sabconnect .ui-icon-arrowstop-1-n { background-position: -192px -32px; }
+.sabconnect .ui-icon-arrowstop-1-e { background-position: -208px -32px; }
+.sabconnect .ui-icon-arrowstop-1-s { background-position: -224px -32px; }
+.sabconnect .ui-icon-arrowstop-1-w { background-position: -240px -32px; }
+.sabconnect .ui-icon-arrowthick-1-n { background-position: 0 -48px; }
+.sabconnect .ui-icon-arrowthick-1-ne { background-position: -16px -48px; }
+.sabconnect .ui-icon-arrowthick-1-e { background-position: -32px -48px; }
+.sabconnect .ui-icon-arrowthick-1-se { background-position: -48px -48px; }
+.sabconnect .ui-icon-arrowthick-1-s { background-position: -64px -48px; }
+.sabconnect .ui-icon-arrowthick-1-sw { background-position: -80px -48px; }
+.sabconnect .ui-icon-arrowthick-1-w { background-position: -96px -48px; }
+.sabconnect .ui-icon-arrowthick-1-nw { background-position: -112px -48px; }
+.sabconnect .ui-icon-arrowthick-2-n-s { background-position: -128px -48px; }
+.sabconnect .ui-icon-arrowthick-2-ne-sw { background-position: -144px -48px; }
+.sabconnect .ui-icon-arrowthick-2-e-w { background-position: -160px -48px; }
+.sabconnect .ui-icon-arrowthick-2-se-nw { background-position: -176px -48px; }
+.sabconnect .ui-icon-arrowthickstop-1-n { background-position: -192px -48px; }
+.sabconnect .ui-icon-arrowthickstop-1-e { background-position: -208px -48px; }
+.sabconnect .ui-icon-arrowthickstop-1-s { background-position: -224px -48px; }
+.sabconnect .ui-icon-arrowthickstop-1-w { background-position: -240px -48px; }
+.sabconnect .ui-icon-arrowreturnthick-1-w { background-position: 0 -64px; }
+.sabconnect .ui-icon-arrowreturnthick-1-n { background-position: -16px -64px; }
+.sabconnect .ui-icon-arrowreturnthick-1-e { background-position: -32px -64px; }
+.sabconnect .ui-icon-arrowreturnthick-1-s { background-position: -48px -64px; }
+.sabconnect .ui-icon-arrowreturn-1-w { background-position: -64px -64px; }
+.sabconnect .ui-icon-arrowreturn-1-n { background-position: -80px -64px; }
+.sabconnect .ui-icon-arrowreturn-1-e { background-position: -96px -64px; }
+.sabconnect .ui-icon-arrowreturn-1-s { background-position: -112px -64px; }
+.sabconnect .ui-icon-arrowrefresh-1-w { background-position: -128px -64px; }
+.sabconnect .ui-icon-arrowrefresh-1-n { background-position: -144px -64px; }
+.sabconnect .ui-icon-arrowrefresh-1-e { background-position: -160px -64px; }
+.sabconnect .ui-icon-arrowrefresh-1-s { background-position: -176px -64px; }
+.sabconnect .ui-icon-arrow-4 { background-position: 0 -80px; }
+.sabconnect .ui-icon-arrow-4-diag { background-position: -16px -80px; }
+.sabconnect .ui-icon-extlink { background-position: -32px -80px; }
+.sabconnect .ui-icon-newwin { background-position: -48px -80px; }
+.sabconnect .ui-icon-refresh { background-position: -64px -80px; }
+.sabconnect .ui-icon-shuffle { background-position: -80px -80px; }
+.sabconnect .ui-icon-transfer-e-w { background-position: -96px -80px; }
+.sabconnect .ui-icon-transferthick-e-w { background-position: -112px -80px; }
+.sabconnect .ui-icon-folder-collapsed { background-position: 0 -96px; }
+.sabconnect .ui-icon-folder-open { background-position: -16px -96px; }
+.sabconnect .ui-icon-document { background-position: -32px -96px; }
+.sabconnect .ui-icon-document-b { background-position: -48px -96px; }
+.sabconnect .ui-icon-note { background-position: -64px -96px; }
+.sabconnect .ui-icon-mail-closed { background-position: -80px -96px; }
+.sabconnect .ui-icon-mail-open { background-position: -96px -96px; }
+.sabconnect .ui-icon-suitcase { background-position: -112px -96px; }
+.sabconnect .ui-icon-comment { background-position: -128px -96px; }
+.sabconnect .ui-icon-person { background-position: -144px -96px; }
+.sabconnect .ui-icon-print { background-position: -160px -96px; }
+.sabconnect .ui-icon-trash { background-position: -176px -96px; }
+.sabconnect .ui-icon-locked { background-position: -192px -96px; }
+.sabconnect .ui-icon-unlocked { background-position: -208px -96px; }
+.sabconnect .ui-icon-bookmark { background-position: -224px -96px; }
+.sabconnect .ui-icon-tag { background-position: -240px -96px; }
+.sabconnect .ui-icon-home { background-position: 0 -112px; }
+.sabconnect .ui-icon-flag { background-position: -16px -112px; }
+.sabconnect .ui-icon-calendar { background-position: -32px -112px; }
+.sabconnect .ui-icon-cart { background-position: -48px -112px; }
+.sabconnect .ui-icon-pencil { background-position: -64px -112px; }
+.sabconnect .ui-icon-clock { background-position: -80px -112px; }
+.sabconnect .ui-icon-disk { background-position: -96px -112px; }
+.sabconnect .ui-icon-calculator { background-position: -112px -112px; }
+.sabconnect .ui-icon-zoomin { background-position: -128px -112px; }
+.sabconnect .ui-icon-zoomout { background-position: -144px -112px; }
+.sabconnect .ui-icon-search { background-position: -160px -112px; }
+.sabconnect .ui-icon-wrench { background-position: -176px -112px; }
+.sabconnect .ui-icon-gear { background-position: -192px -112px; }
+.sabconnect .ui-icon-heart { background-position: -208px -112px; }
+.sabconnect .ui-icon-star { background-position: -224px -112px; }
+.sabconnect .ui-icon-link { background-position: -240px -112px; }
+.sabconnect .ui-icon-cancel { background-position: 0 -128px; }
+.sabconnect .ui-icon-plus { background-position: -16px -128px; }
+.sabconnect .ui-icon-plusthick { background-position: -32px -128px; }
+.sabconnect .ui-icon-minus { background-position: -48px -128px; }
+.sabconnect .ui-icon-minusthick { background-position: -64px -128px; }
+.sabconnect .ui-icon-close { background-position: -80px -128px; }
+.sabconnect .ui-icon-closethick { background-position: -96px -128px; }
+.sabconnect .ui-icon-key { background-position: -112px -128px; }
+.sabconnect .ui-icon-lightbulb { background-position: -128px -128px; }
+.sabconnect .ui-icon-scissors { background-position: -144px -128px; }
+.sabconnect .ui-icon-clipboard { background-position: -160px -128px; }
+.sabconnect .ui-icon-copy { background-position: -176px -128px; }
+.sabconnect .ui-icon-contact { background-position: -192px -128px; }
+.sabconnect .ui-icon-image { background-position: -208px -128px; }
+.sabconnect .ui-icon-video { background-position: -224px -128px; }
+.sabconnect .ui-icon-script { background-position: -240px -128px; }
+.sabconnect .ui-icon-alert { background-position: 0 -144px; }
+.sabconnect .ui-icon-info { background-position: -16px -144px; }
+.sabconnect .ui-icon-notice { background-position: -32px -144px; }
+.sabconnect .ui-icon-help { background-position: -48px -144px; }
+.sabconnect .ui-icon-check { background-position: -64px -144px; }
+.sabconnect .ui-icon-bullet { background-position: -80px -144px; }
+.sabconnect .ui-icon-radio-on { background-position: -96px -144px; }
+.sabconnect .ui-icon-radio-off { background-position: -112px -144px; }
+.sabconnect .ui-icon-pin-w { background-position: -128px -144px; }
+.sabconnect .ui-icon-pin-s { background-position: -144px -144px; }
+.sabconnect .ui-icon-play { background-position: 0 -160px; }
+.sabconnect .ui-icon-pause { background-position: -16px -160px; }
+.sabconnect .ui-icon-seek-next { background-position: -32px -160px; }
+.sabconnect .ui-icon-seek-prev { background-position: -48px -160px; }
+.sabconnect .ui-icon-seek-end { background-position: -64px -160px; }
+.sabconnect .ui-icon-seek-start { background-position: -80px -160px; }
+/* ui-icon-seek-first is deprecated, use ui-icon-seek-start instead */
+.sabconnect .ui-icon-seek-first { background-position: -80px -160px; }
+.sabconnect .ui-icon-stop { background-position: -96px -160px; }
+.sabconnect .ui-icon-eject { background-position: -112px -160px; }
+.sabconnect .ui-icon-volume-off { background-position: -128px -160px; }
+.sabconnect .ui-icon-volume-on { background-position: -144px -160px; }
+.sabconnect .ui-icon-power { background-position: 0 -176px; }
+.sabconnect .ui-icon-signal-diag { background-position: -16px -176px; }
+.sabconnect .ui-icon-signal { background-position: -32px -176px; }
+.sabconnect .ui-icon-battery-0 { background-position: -48px -176px; }
+.sabconnect .ui-icon-battery-1 { background-position: -64px -176px; }
+.sabconnect .ui-icon-battery-2 { background-position: -80px -176px; }
+.sabconnect .ui-icon-battery-3 { background-position: -96px -176px; }
+.sabconnect .ui-icon-circle-plus { background-position: 0 -192px; }
+.sabconnect .ui-icon-circle-minus { background-position: -16px -192px; }
+.sabconnect .ui-icon-circle-close { background-position: -32px -192px; }
+.sabconnect .ui-icon-circle-triangle-e { background-position: -48px -192px; }
+.sabconnect .ui-icon-circle-triangle-s { background-position: -64px -192px; }
+.sabconnect .ui-icon-circle-triangle-w { background-position: -80px -192px; }
+.sabconnect .ui-icon-circle-triangle-n { background-position: -96px -192px; }
+.sabconnect .ui-icon-circle-arrow-e { background-position: -112px -192px; }
+.sabconnect .ui-icon-circle-arrow-s { background-position: -128px -192px; }
+.sabconnect .ui-icon-circle-arrow-w { background-position: -144px -192px; }
+.sabconnect .ui-icon-circle-arrow-n { background-position: -160px -192px; }
+.sabconnect .ui-icon-circle-zoomin { background-position: -176px -192px; }
+.sabconnect .ui-icon-circle-zoomout { background-position: -192px -192px; }
+.sabconnect .ui-icon-circle-check { background-position: -208px -192px; }
+.sabconnect .ui-icon-circlesmall-plus { background-position: 0 -208px; }
+.sabconnect .ui-icon-circlesmall-minus { background-position: -16px -208px; }
+.sabconnect .ui-icon-circlesmall-close { background-position: -32px -208px; }
+.sabconnect .ui-icon-squaresmall-plus { background-position: -48px -208px; }
+.sabconnect .ui-icon-squaresmall-minus { background-position: -64px -208px; }
+.sabconnect .ui-icon-squaresmall-close { background-position: -80px -208px; }
+.sabconnect .ui-icon-grip-dotted-vertical { background-position: 0 -224px; }
+.sabconnect .ui-icon-grip-dotted-horizontal { background-position: -16px -224px; }
+.sabconnect .ui-icon-grip-solid-vertical { background-position: -32px -224px; }
+.sabconnect .ui-icon-grip-solid-horizontal { background-position: -48px -224px; }
+.sabconnect .ui-icon-gripsmall-diagonal-se { background-position: -64px -224px; }
+.sabconnect .ui-icon-grip-diagonal-se { background-position: -80px -224px; }
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Corner radius */
+.sabconnect .ui-corner-all, .sabconnect .ui-corner-top, .sabconnect .ui-corner-left, .sabconnect .ui-corner-tl { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; -khtml-border-top-left-radius: 4px; border-top-left-radius: 4px; }
+.sabconnect .ui-corner-all, .sabconnect .ui-corner-top, .sabconnect .ui-corner-right, .sabconnect .ui-corner-tr { -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; -khtml-border-top-right-radius: 4px; border-top-right-radius: 4px; }
+.sabconnect .ui-corner-all, .sabconnect .ui-corner-bottom, .sabconnect .ui-corner-left, .sabconnect .ui-corner-bl { -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px; -khtml-border-bottom-left-radius: 4px; border-bottom-left-radius: 4px; }
+.sabconnect .ui-corner-all, .sabconnect .ui-corner-bottom, .sabconnect .ui-corner-right, .sabconnect .ui-corner-br { -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; -khtml-border-bottom-right-radius: 4px; border-bottom-right-radius: 4px; }
+
+/* Overlays */
+.sabconnect .ui-widget-overlay { background: #666666 url("images/ui-bg_diagonals-thick_20_666666_40x40.png") 50% 50% repeat; opacity: .5;filter:Alpha(Opacity=50); }
+.sabconnect .ui-widget-shadow { margin: -5px 0 0 -5px; padding: 5px; background: #000000 url("images/ui-bg_flat_10_000000_40x100.png") 50% 50% repeat-x; opacity: .2;filter:Alpha(Opacity=20); -moz-border-radius: 5px; -khtml-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }

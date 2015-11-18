@@ -40,7 +40,8 @@
 		"images/sab2_16_green.png",
 		"images/sab2_48.png",
 		"css/common.css",
-		"images/nzbmatrix_button.gif"
+		"images/nzbmatrix_button.gif",
+		"third_party/jquery/jquery-ui.min.css"
 	],
 	"permissions":
 	[
@@ -69,7 +70,10 @@
 				"*://*.yubse.com/*",
 				"*://*.omgwtfnzbs.org/*",
 				"*://*.nzb-rss.com/*",
-                "*://*.usenet4ever.info/*"
+                "*://*.usenet4ever.info/*",
+				"*://*.ghost-of-usenet.org/*",
+				"*://*.usenet-4all.info/*",
+				"*://*.usenet-space-cowboys.info/*"
 			],
 			"js": [
 				"third_party/jquery/jquery-1.7.2.min.js",
@@ -104,7 +108,7 @@
 				"*://*.nzbindex.com/*",
 				"*://*.nzbindex.nl/*"
 			],
-			"js": [	"scripts/content/nzbindex.js" ],
+			"js": [	"third_party/jquery/js.cookie.js", "scripts/content/nzbindex.js" ],
 			"all_frames": true
 		},
 		{
@@ -149,7 +153,23 @@
             "all_frames": true,
             "js": [ "scripts/content/usenet4ever.js" ],
             "matches": [ "*://*.usenet4ever.info/*" ]
-        }			
+        },
+		{
+			"matches": [ "*://*.ghost-of-usenet.org/*" ],
+			"js": [	"scripts/content/ghost-of-usenet.js" ],
+			"all_frames": true
+		},
+		{
+			"matches": [ "*://*.usenet-4all.info/*" ],
+			"js": [	"scripts/content/usenet-4all.js" ],
+			"all_frames": true
+		},
+		{
+			"matches": [ "*://*.usenet-space-cowboys.info/*" ],
+			"js": [	"scripts/content/usenet-space-cowboys.js" ],
+			"all_frames": true
+		}
+				
 		
 	]
 }
