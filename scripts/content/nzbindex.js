@@ -6,9 +6,9 @@ function getCategory(categoriesText) {
 	if (category && category != "*") return category;
 	
 	if (categoriesText.indexOf('\n') != -1) {
-		category = categoriesText.substr(0, categories.indexOf('\n'));
+		category = categoriesText.substr(0, categoriesText.indexOf('\n'));
 	} else {
-		category = categories;
+		category = categoriesText;
 	}
 	
 	return category;
@@ -17,7 +17,7 @@ function getCategory(categoriesText) {
 function getNiceName(subject) {
 	var title = $('#sabconnect_title').val();
 	if (title == "" && use_nice_name_nzbindex == '1') {
-		title = $($(this).parent().parent().parent().parent().find('td')[1]).find('label')[0].innerText;
+		title = subject;
 	}
 	
 	var password = $('#sabconnect_nzbpassword').val();
