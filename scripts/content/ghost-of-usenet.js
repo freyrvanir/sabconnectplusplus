@@ -2,7 +2,7 @@ function parsePost(addLink, callback) {
 	// get header and password
 	var root = $(addLink).closest('section.messageContent > div');
 	var title = root.find('h1').text().replace(/\./g, " ");
-	var hiddenContent = root.find('.hide').text();
+	var hiddenContent = root.find('div.showHiddenContent').text();
 	var header = /(?:Header:\s*|Subject:\s*)+(.+)/gim.exec(hiddenContent);
 	if (header == null) {
 		alert("no header found");
